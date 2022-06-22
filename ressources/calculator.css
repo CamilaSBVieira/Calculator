@@ -1,7 +1,15 @@
 .calculator {
-    background-color: var(--background);
     width: 100vw;
     height: 100vh;
     padding: 2rem;
     box-sizing: border-box;
+    background-color: var(--background);
+}
+
+@media screen and (min-width: 1200px) {
+    .calculator {
+        width: 50vw;
+        height: 45vw;
+        margin: 0 auto;
+    }
 }

@@ -10,3 +10,8 @@
 .operators .botoes {
     background-color: var(--background-terciario);
 }
+@media screen and (min-width: 1200px) {
+    .operators .botoes:hover {
+        background-color: #FFFFFF;
+    }
+}
