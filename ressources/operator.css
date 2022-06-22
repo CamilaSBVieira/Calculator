@@ -1,0 +1,12 @@
+.operators {
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+    padding: 1rem 0 1rem .5rem;
+    box-sizing: border-box;
+    gap: .5rem;
+    
+}
+.operators .botoes {
+    background-color: var(--background-terciario);
+}

@@ -1,0 +1,7 @@
+.display {
+    background-color: var(--background-secundario);
+    height: auto;
+    padding: .8rem;
+    box-shadow: var(--inner-shadow);
+    border-radius: .3rem;
+}

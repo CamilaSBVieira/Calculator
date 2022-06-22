@@ -1,0 +1,8 @@
+.numbers {
+    display: flex;
+    width: calc(80vw - 4rem);
+    padding: 1rem 0;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    gap: .5rem;
+}

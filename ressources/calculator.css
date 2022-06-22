@@ -1,0 +1,7 @@
+.calculator {
+    background-color: var(--background);
+    width: 100vw;
+    height: 100vh;
+    padding: 2rem;
+    box-sizing: border-box;
+}
