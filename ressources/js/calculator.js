@@ -5,6 +5,7 @@ const plus = document.getElementById('plus');
 const minus = document.getElementById('minus');
 const multiply = document.getElementById('multiply');
 const divide = document.getElementById('divide');
+const ponto = document.getElementById('ponto');
 let operatorArray = [plus, minus, multiply, divide];
 let numberArray = [];
 
@@ -34,21 +35,19 @@ class Calculate {
     }
     Calc(current) {
         if (this.Operador === '+') {
-            this.Result = Number(this.Anterior) + current;
+            this.Result = Number(this.Anterior) + Number(current);
         } else if (this.Operador === '-') {
-            this.Result = Number(this.Anterior) - current;
+            this.Result = Number(this.Anterior) - Number(current);
         } else if (this.Operador.charCodeAt() === 215) {
-            this.Result = Number(this.Anterior) * current;
+            this.Result = Number(this.Anterior) * Number(current);
         } else if (this.Operador.charCodeAt() === 247) {
-            this.Result = Number(this.Anterior) / current;
+            this.Result = Number(this.Anterior) / Number(current);
         }
     }
 }
 
 let calc = new Calculate;
-let num;
-let current = 0;
-let operador;
+let current = '';
 let calcTrack = '';
 
 for (let i = 0; i < 10; i++) {
@@ -59,7 +58,7 @@ console.log(numberArray);
 for (let i = 0; i < numberArray.length; i++) {
     numberArray[i].addEventListener('click', (e) => {
         current += e.target.textContent;
-        calc.Calc(Number(current));
+        calc.Calc(current);
         display.textContent = calc.Result;
         calcTrack += e.target.textContent;
         track.textContent = calcTrack;
@@ -74,3 +73,10 @@ for (let i = 0; i < operatorArray.length; i++) {
         current = 0;
     });
 }
+ponto.addEventListener('click', (e) => {
+    current += '.';
+    calcTrack += '.';
+    calc.Calc(current);
+    display.textContent = calcTrack;
+    track.textContent = calcTrack;
+});
