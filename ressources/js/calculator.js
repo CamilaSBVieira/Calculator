@@ -82,5 +82,10 @@ ponto.addEventListener('click', (e) => {
     track.textContent = calcTrack;
 });
 erase.addEventListener('click', () => {
-    document.location.reload(true)
+    //document.location.reload(true);
+    calc = new Calculate;
+    current = '';
+    calcTrack = '';
+    display.textContent = calc.Result;
+    track.textContent = calcTrack;
 })
