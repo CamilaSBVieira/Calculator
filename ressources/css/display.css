@@ -1,13 +1,13 @@
 .display {
     background-color: var(--background-secundario);
-    height: auto;
+    height: calc(var(--font-size) * 2);
     padding: 2rem;
     box-shadow: var(--inner-shadow);
     border-radius: .3rem;
 }
 @media screen and (min-width: 712px) {
     .display {
-        padding: 3rem;
+        height: calc((var(--font-size) * 2) + 2rem);
         font-size: var(--font-bigger);
     }
 }

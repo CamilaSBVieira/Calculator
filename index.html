@@ -5,33 +5,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="ressources/base.css">
+    <link rel="stylesheet" href="ressources/css/base.css">
     <title>Calculator</title>
 </head>
 
 <body>
     <div class="calculator">
-        <div class="display">Display</div>
+        <div class="display">
+            <p id="track"></p>
+            <p id="display"></p>
+        </div>
         <div class="botao">
         <div class="numbers">
-            <div class="number9 botoes">9</div>
-            <div class="number8 botoes">8</div>
-            <div class="number7 botoes">7</div>
-            <div class="number6 botoes">6</div>
-            <div class="number5 botoes">5</div>
-            <div class="number4 botoes">4</div>
-            <div class="number3 botoes">3</div>
-            <div class="number2 botoes">2</div>
-            <div class="number1 botoes">1</div>
-            <div class="number0 botoes">0</div>
+            <div id="number9" class="botoes">9</div>
+            <div id="number8" class="botoes">8</div>
+            <div id="number7" class="botoes">7</div>
+            <div id="number6" class="botoes">6</div>
+            <div id="number5" class="botoes">5</div>
+            <div id="number4" class="botoes">4</div>
+            <div id="number3" class="botoes">3</div>
+            <div id="number2" class="botoes">2</div>
+            <div id="number1" class="botoes">1</div>
+            <div id="number0" class="botoes">0</div>
         </div>
         <div class="operators">
-            <div class="botoes">+</div>
-            <div class="botoes">-</div>
-            <div class="botoes">&#215;</div>
-            <div class="botoes">&#247</div>
+            <div id="plus" class="botoes">+</div>
+            <div id="minus" class="botoes">-</div>
+            <div id="multiply" class="botoes">&#215;</div>
+            <div id="divide" class="botoes">&#247;</div>
     </div>
 </div>
 </body>
-
+<script src="ressources/js/calculator.js"></script>
 </html>
