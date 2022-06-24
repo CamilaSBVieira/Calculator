@@ -32,7 +32,13 @@ class Calculate {
         this._result = num;
     }
     set Operador(operador) {
-        this._operador = operador;
+        if(operador.charCodeAt() === 47) {
+            this._operador = String.fromCharCode(247);
+        } else if (operador.charCodeAt() === 42) {
+            this._operador = String.fromCharCode(215);
+        } else {
+            this._operador = operador;
+        }
     }
     Calc(current) {
         if (this.Operador === '+') {
@@ -68,7 +74,7 @@ for (let i = 0; i < numberArray.length; i++) {
 for (let i = 0; i < operatorArray.length; i++) {
     operatorArray[i].addEventListener('click', (e) => {
         calc.Operador = e.target.textContent;
-        calcTrack += e.target.textContent;
+        calcTrack += calc.Operador;
         track.textContent = calcTrack;
         calc.Anterior = calc.Result;
         current = 0;
@@ -81,10 +87,27 @@ ponto.addEventListener('click', (e) => {
     display.textContent = calc.Result;
     track.textContent = calcTrack;
 });
+document.addEventListener('keyup', (e) => {
+    let keyPressed = e.key.charCodeAt();
+    if (keyPressed > 47 && keyPressed < 58) {
+        current += String.fromCharCode(keyPressed);
+        calc.Calc(current);
+        display.textContent = calc.Result;
+        calcTrack += String.fromCharCode(keyPressed);
+        track.textContent = calcTrack;
+    }
+    if (keyPressed === 42 || keyPressed === 43 || keyPressed === 45 || keyPressed === 47) {
+        calc.Operador = String.fromCharCode(keyPressed);
+        calcTrack += calc.Operador;
+        track.textContent = calcTrack;
+        calc.Anterior = calc.Result;
+        current = 0;
+    }
+});
 erase.addEventListener('click', () => {
     calc = new Calculate;
     current = '';
     calcTrack = '';
-    display.textContent = calc.Result;
+    display.textContent = '';
     track.textContent = calcTrack;
-})
+});
