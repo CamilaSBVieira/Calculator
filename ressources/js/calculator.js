@@ -11,7 +11,7 @@ let numberArray = [];
 
 class Calculate {
     constructor() {
-        this._anterior = '0';
+        this._anterior = 0;
         this._result = 0;
         this._operador = '+';
     }
@@ -77,6 +77,6 @@ ponto.addEventListener('click', (e) => {
     current += '.';
     calcTrack += '.';
     calc.Calc(current);
-    display.textContent = calcTrack;
+    display.textContent = calc.Result;
     track.textContent = calcTrack;
 });
