@@ -32,7 +32,7 @@ class Calculate {
         this._result = num;
     }
     set Operador(operador) {
-        if(operador.charCodeAt() === 47) {
+        if (operador.charCodeAt() === 47) {
             this._operador = String.fromCharCode(247);
         } else if (operador.charCodeAt() === 42) {
             this._operador = String.fromCharCode(215);
@@ -102,6 +102,13 @@ document.addEventListener('keyup', (e) => {
         track.textContent = calcTrack;
         calc.Anterior = calc.Result;
         current = 0;
+    }
+    if (keyPressed === 46) {
+        current += '.';
+        calcTrack += '.';
+        calc.Calc(current);
+        display.textContent = calc.Result;
+        track.textContent = calcTrack;
     }
 });
 erase.addEventListener('click', () => {
