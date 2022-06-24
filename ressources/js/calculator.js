@@ -6,6 +6,7 @@ const minus = document.getElementById('minus');
 const multiply = document.getElementById('multiply');
 const divide = document.getElementById('divide');
 const ponto = document.getElementById('ponto');
+const erase = document.getElementById('erase');
 let operatorArray = [plus, minus, multiply, divide];
 let numberArray = [];
 
@@ -80,3 +81,12 @@ ponto.addEventListener('click', (e) => {
     display.textContent = calc.Result;
     track.textContent = calcTrack;
 });
+erase.addEventListener('click', () => {
+    current = '';
+    calcTrack = '';
+    calc.Anterior = 0;
+    calc.Calc(current);
+    display.textContent = '';
+    track.textContent = '';
+    alert(calc.Result);
+})
