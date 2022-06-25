@@ -76,6 +76,7 @@ for (let i = 0; i < operatorArray.length; i++) {
         calc.Operador = e.target.textContent;
         calcTrack += calc.Operador;
         track.textContent = calcTrack;
+        display.textContent = calc.Result;
         calc.Anterior = calc.Result;
         current = 0;
     });
