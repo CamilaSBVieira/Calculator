@@ -1,6 +1,6 @@
 .numbers {
-    display: flex;
-    flex-direction: row-reverse;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     width: calc(80vw - 4rem);
     padding: 1rem 0;
     box-sizing: border-box;
