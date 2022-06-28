@@ -57,6 +57,11 @@ let calc = new Calculate;
 let current = '';
 let calcTrack = '';
 
+// track.scrollIntoView();
+function scroll(e) {
+    e.scrollTop = e.scrollHeight;
+}
+
 for (let i = 0; i < 10; i++) {
     numberArray.push(document.getElementById(`number${i}`));
 }
@@ -64,11 +69,16 @@ console.log(numberArray);
 
 for (let i = 0; i < numberArray.length; i++) {
     numberArray[i].addEventListener('click', (e) => {
-        current += e.target.textContent;
-        calc.Calc(current);
-        display.textContent = calc.Result;
-        calcTrack += e.target.textContent;
-        track.textContent = calcTrack;
+        if(current.length + 1 > 9) {
+            alert('Number can\'t be longer');
+        } else {
+            current += e.target.textContent;
+            calcTrack += e.target.textContent;
+            calc.Calc(current);
+            display.textContent = calc.Result;
+            track.textContent = calcTrack;
+            scroll(track);
+        }
     });
 }
 for (let i = 0; i < operatorArray.length; i++) {
@@ -76,40 +86,57 @@ for (let i = 0; i < operatorArray.length; i++) {
         calc.Operador = e.target.textContent;
         calcTrack += calc.Operador;
         track.textContent = calcTrack;
+        scroll(track);
         display.textContent = calc.Result;
         calc.Anterior = calc.Result;
-        current = 0;
+        current = '';
     });
 }
 ponto.addEventListener('click', (e) => {
-    current += '.';
-    calcTrack += '.';
-    calc.Calc(current);
-    display.textContent = calc.Result;
-    track.textContent = calcTrack;
-});
-document.addEventListener('keyup', (e) => {
-    let keyPressed = e.key.charCodeAt();
-    if (keyPressed > 47 && keyPressed < 58) {
-        current += String.fromCharCode(keyPressed);
-        calc.Calc(current);
-        display.textContent = calc.Result;
-        calcTrack += String.fromCharCode(keyPressed);
-        track.textContent = calcTrack;
-    }
-    if (keyPressed === 42 || keyPressed === 43 || keyPressed === 45 || keyPressed === 47) {
-        calc.Operador = String.fromCharCode(keyPressed);
-        calcTrack += calc.Operador;
-        track.textContent = calcTrack;
-        calc.Anterior = calc.Result;
-        current = 0;
-    }
-    if (keyPressed === 46) {
+    if(current.length + 1 > 9) {
+        alert('Number can\'t be longer');
+    } else {
         current += '.';
         calcTrack += '.';
         calc.Calc(current);
         display.textContent = calc.Result;
         track.textContent = calcTrack;
+        scroll(track);
+    }
+});
+document.addEventListener('keypress', (e) => {
+    let keyPressed = e.key.charCodeAt();
+    if (keyPressed > 47 && keyPressed < 58) {
+        if(current.length + 1 > 9) {
+            alert('Number can\'t be longer');
+        } else {
+            current += String.fromCharCode(keyPressed);
+            calc.Calc(current);
+            display.textContent = calc.Result;
+            calcTrack += String.fromCharCode(keyPressed);
+            track.textContent = calcTrack;
+            scroll(track);
+        }
+    }
+    if (keyPressed === 42 || keyPressed === 43 || keyPressed === 45 || keyPressed === 47) {
+        calc.Operador = String.fromCharCode(keyPressed);
+        calcTrack += calc.Operador;
+        track.textContent = calcTrack;
+        scroll(track);
+        calc.Anterior = calc.Result;
+        current = '';
+    }
+    if (keyPressed === 46) {
+        if(current.length + 1 > 9) {
+            alert('Number can\'t be longer');
+        } else {
+            current += '.';
+            calcTrack += '.';
+            scroll(track);
+            calc.Calc(current);
+            display.textContent = calc.Result;
+            track.textContent = calcTrack;
+        }
     }
 });
 erase.addEventListener('click', () => {
