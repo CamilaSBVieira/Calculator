@@ -84,6 +84,9 @@ for (let i = 0; i < numberArray.length; i++) {
 for (let i = 0; i < operatorArray.length; i++) {
     operatorArray[i].addEventListener('click', (e) => {
         calc.Operador = e.target.textContent;
+        if(calcTrack.slice(-1).charCodeAt() === 45 || calcTrack.slice(-1).charCodeAt() === 247 || calcTrack.slice(-1).charCodeAt() === 43 || calcTrack.slice(-1).charCodeAt() === 215) {
+            calcTrack = calcTrack.slice(0, -1);
+        }
         calcTrack += calc.Operador;
         track.textContent = calcTrack;
         scroll(track);
@@ -120,6 +123,11 @@ document.addEventListener('keypress', (e) => {
     }
     if (keyPressed === 42 || keyPressed === 43 || keyPressed === 45 || keyPressed === 47) {
         calc.Operador = String.fromCharCode(keyPressed);
+        // alert(calcTrack.slice(-1));
+        // alert(calcTrack.slice(-1).charCodeAt() === 43);
+        if(calcTrack.slice(-1).charCodeAt() === 45 || calcTrack.slice(-1).charCodeAt() === 247 || calcTrack.slice(-1).charCodeAt() === 43 || calcTrack.slice(-1).charCodeAt() === 215) {
+            calcTrack = calcTrack.slice(0, -1);
+        }
         calcTrack += calc.Operador;
         track.textContent = calcTrack;
         scroll(track);
