@@ -1,4 +1,4 @@
-
+const error = document.querySelector('.error');
 const display = document.getElementById('display');
 const track = document.getElementById('track');
 const plus = document.getElementById('plus');
@@ -72,6 +72,14 @@ function count(str) {
     return count;
 }
 
+function removeAlerta() {
+    const msgAlerta = document.querySelector('.alert');
+    error.removeChild(msgAlerta);
+}
+function alerta() {
+    error.innerHTML = "<div class='alert'>Number can\'t be longer <span class='close' onclick='removeAlerta()'>X</span></div>";
+}
+
 for (let i = 0; i < 10; i++) {
     numberArray.push(document.getElementById(`number${i}`));
 }
@@ -80,7 +88,7 @@ console.log(numberArray);
 for (let i = 0; i < numberArray.length; i++) {
     numberArray[i].addEventListener('click', (e) => {
         if(count(current) + 1 > 9) {
-            alert('Number can\'t be longer');
+            alerta();
         } else {
             current += e.target.textContent;
             calcTrack += e.target.textContent;
@@ -107,7 +115,7 @@ for (let i = 0; i < operatorArray.length; i++) {
 }
 ponto.addEventListener('click', (e) => {
     if(count(current) + 1 > 9) {
-        alert('Number can\'t be longer');
+        alerta();
     } else {
         current += '.';
         calcTrack += '.';
@@ -121,7 +129,7 @@ document.addEventListener('keypress', (e) => {
     let keyPressed = e.key.charCodeAt();
     if (keyPressed > 47 && keyPressed < 58) {
         if(count(current) + 1 > 9) {
-            alert('Number can\'t be longer');
+            alerta();
         } else {
             current += String.fromCharCode(keyPressed);
             calc.Calc(current);
@@ -146,7 +154,7 @@ document.addEventListener('keypress', (e) => {
     }
     if (keyPressed === 46) {
         if(count(current) + 1 > 9) {
-            alert('Number can\'t be longer');
+            alerta();
         } else {
             current += '.';
             calcTrack += '.';
