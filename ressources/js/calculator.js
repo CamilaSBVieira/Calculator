@@ -62,6 +62,16 @@ function scroll(e) {
     e.scrollTop = e.scrollHeight;
 }
 
+function count(str) {
+    let count = 0;
+    str.split('').forEach(char => {
+        if(char !== '.') {
+            count++;
+        }
+    });
+    return count;
+}
+
 for (let i = 0; i < 10; i++) {
     numberArray.push(document.getElementById(`number${i}`));
 }
@@ -69,7 +79,7 @@ console.log(numberArray);
 
 for (let i = 0; i < numberArray.length; i++) {
     numberArray[i].addEventListener('click', (e) => {
-        if(current.length + 1 > 9) {
+        if(count(current) + 1 > 9) {
             alert('Number can\'t be longer');
         } else {
             current += e.target.textContent;
@@ -96,7 +106,7 @@ for (let i = 0; i < operatorArray.length; i++) {
     });
 }
 ponto.addEventListener('click', (e) => {
-    if(current.length + 1 > 9) {
+    if(count(current) + 1 > 9) {
         alert('Number can\'t be longer');
     } else {
         current += '.';
@@ -110,7 +120,7 @@ ponto.addEventListener('click', (e) => {
 document.addEventListener('keypress', (e) => {
     let keyPressed = e.key.charCodeAt();
     if (keyPressed > 47 && keyPressed < 58) {
-        if(current.length + 1 > 9) {
+        if(count(current) + 1 > 9) {
             alert('Number can\'t be longer');
         } else {
             current += String.fromCharCode(keyPressed);
@@ -135,7 +145,7 @@ document.addEventListener('keypress', (e) => {
         current = '';
     }
     if (keyPressed === 46) {
-        if(current.length + 1 > 9) {
+        if(count(current) + 1 > 9) {
             alert('Number can\'t be longer');
         } else {
             current += '.';
