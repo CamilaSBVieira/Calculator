@@ -29,6 +29,16 @@ let operatorArray = [plus, minus, multiply, divide];
 // create array for number buttons
 let numberArray = [];
 
+
+/* 
+the logic for the calculator:
+when the number is being typed, it is stored to the current variable
+when the user types an operator, the current number is stored on the previous property and current is emptied
+if the user types another operator, reset the operator property
+when the user types more numbers, the current variable stores the numbers and the function calculate is called with the previous property and the current number
+the result is updated as the user types
+everything (number and operator) is stored on the tracking variable
+*/
 // create instance for Calculate class
 let calc = new Calculate;
 // create variable to store the current number being typed
