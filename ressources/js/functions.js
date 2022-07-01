@@ -1,4 +1,8 @@
-const error = document.querySelector('.error');
+import { Calculate } from './Calculate.js';
+import { scroll } from './scrollFunction.js';
+import { count } from './countFunction.js';
+import { alerta } from './alert.js';
+
 const display = document.getElementById('display');
 const track = document.getElementById('track');
 const plus = document.getElementById('plus');
@@ -10,80 +14,15 @@ const erase = document.getElementById('erase');
 let operatorArray = [plus, minus, multiply, divide];
 let numberArray = [];
 
-class Calculate {
-    constructor() {
-        this._anterior = 0;
-        this._result = 0;
-        this._operador = '+';
-    }
-    get Anterior() {
-        return this._anterior;
-    }
-    get Result() {
-        return this._result;
-    }
-    get Operador() {
-        return this._operador;
-    }
-    set Anterior(num) {
-        this._anterior = num;
-    }
-    set Result(num) {
-        this._result = num;
-    }
-    set Operador(operador) {
-        if (operador.charCodeAt() === 47) {
-            this._operador = String.fromCharCode(247);
-        } else if (operador.charCodeAt() === 42) {
-            this._operador = String.fromCharCode(215);
-        } else {
-            this._operador = operador;
-        }
-    }
-    Calc(current) {
-        if (this.Operador === '+') {
-            this.Result = Number(this.Anterior) + Number(current);
-        } else if (this.Operador === '-') {
-            this.Result = Number(this.Anterior) - Number(current);
-        } else if (this.Operador.charCodeAt() === 215) {
-            this.Result = Number(this.Anterior) * Number(current);
-        } else if (this.Operador.charCodeAt() === 247) {
-            this.Result = Number(this.Anterior) / Number(current);
-        }
-    }
-}
 
 let calc = new Calculate;
 let current = '';
 let calcTrack = '';
 
-// track.scrollIntoView();
-function scroll(e) {
-    e.scrollTop = e.scrollHeight;
-}
-
-function count(str) {
-    let count = 0;
-    str.split('').forEach(char => {
-        if(char !== '.') {
-            count++;
-        }
-    });
-    return count;
-}
-
-function removeAlerta() {
-    const msgAlerta = document.querySelector('.alert');
-    error.removeChild(msgAlerta);
-}
-function alerta() {
-    error.innerHTML = "<div class='alert'>Number can\'t be longer <span class='close' onclick='removeAlerta()'>X</span></div>";
-}
 
 for (let i = 0; i < 10; i++) {
     numberArray.push(document.getElementById(`number${i}`));
 }
-console.log(numberArray);
 
 for (let i = 0; i < numberArray.length; i++) {
     numberArray[i].addEventListener('click', (e) => {
