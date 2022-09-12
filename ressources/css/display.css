@@ -4,23 +4,26 @@
     padding: 2rem;
     box-shadow: var(--inner-shadow);
     border-radius: .3rem;
-    /* overflow: hidden; */
-    /* direction: rtl; */
-    /* text-overflow: ellipsis; */
 }
 .display #track, .display #display {
-    max-height: calc(var(--font-size) + 1rem);
+    height: calc(var(--font-size) + 1rem);
     word-break: break-all;
-    overflow-y: scroll;
+    overflow-y: auto;
     max-width: 100%;
 }
 .display #track::-webkit-scrollbar, .display #display::-webkit-scrollbar {
-    display: none;
+    /* display: none; */
+    width: .5rem;
+    /* background: var(--background-secundario); */
 }
-.display #track, .display #display {
-    -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none; 
-}
+::-webkit-scrollbar-thumb {
+    border-radius: 20%;
+    background-color: var(--background-terciario);
+  }
+/* .display #track, .display #display {
+    -ms-overflow-style: none; /* IE and Edge*/
+  /* scrollbar-width: none;  */
+/* }  */
 
 @media screen and (min-width: 712px) {
     .display {

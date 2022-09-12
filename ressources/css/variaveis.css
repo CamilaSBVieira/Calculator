@@ -4,6 +4,7 @@
     --background: #C7F0E7;
     --background-secundario: #F7FFF2;
     --background-terciario: #A7B3A1;
+    --scroll-bar: lightgrey;
     --font-size: 35px;
     --inner-shadow: inset .3rem .3rem 1rem rgba(161, 179, 176, .2);
     --button-shadow: .3rem .3rem 1rem rgba(161, 179, 176, .2);

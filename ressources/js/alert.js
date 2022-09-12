@@ -3,7 +3,7 @@ const error = document.querySelector('.error');
 // function to add alert on the error element
 export function alerta() {
     // add alert to the error element
-    error.innerHTML = "<div class='alert'>Number can\'t be longer <span class='close' >X</span></div>";
+    error.innerHTML = "<div class='alert'>Can't enter more than 9 digits<span class='close' >X</span></div>";
     // get the close button
     const close = document.querySelector('.close');
     // adds event listener for clicks on the close button
